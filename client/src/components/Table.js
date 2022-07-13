@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Post from './Post';
 import Pagination from './Pagination';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import './Details.css';
 
 function Table({ viewDetails }) {
   const [user, setUser] = useState([]);
-
+  let navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage] = useState(13);
+  const [postPerPage] = useState(5);
   const [order, setOrder] = useState('ASC');
   const [search, setSearch] = useState('');
 
@@ -67,14 +69,26 @@ function Table({ viewDetails }) {
     <>
       <div className='table_container'>
         <div className='heading'>
-          <h1>Users</h1>
+          <div className='title'>
+            <h1 className='header'>Users</h1>
+            <a
+              className='logout'
+              href=''
+              onClick={() => {
+                navigate(`/`);
+              }}
+            >
+              Logout
+            </a>
+          </div>
+
           <form
             className='d-flex input-group w-100vw'
             onSubmit={(e) => e.preventDefault()}
           >
             <input
               type='text'
-              placeholder='Search for first name'
+              placeholder='Search for first name and last name'
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
