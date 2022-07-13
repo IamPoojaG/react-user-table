@@ -15,7 +15,7 @@ function Table({ viewDetails }) {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/users')
+      .get('https://react-user.herokuapp.com/users')
       .then((res) => setUser(res.data.users))
       .catch((err) => console.log(err));
   }, []);
@@ -34,7 +34,7 @@ function Table({ viewDetails }) {
   const deletePost = (id) => {
     setUser(user.filter((user) => user._id !== id));
     axios
-      .delete(`http://localhost:5000/users/${id}`)
+      .delete(`https://react-user.herokuapp.com/users/${id}`)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   };

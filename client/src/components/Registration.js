@@ -57,7 +57,7 @@ function Registration() {
     };
 
     axios
-      .post('http://localhost:5000/users/add', newPost)
+      .post('https://react-user.herokuapp.com/users/add', newPost)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   }

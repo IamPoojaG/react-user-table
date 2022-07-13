@@ -13,7 +13,7 @@ function App() {
 
   const viewDetails = (id) => {
     axios
-      .get(`http://localhost:5000/users/${id}`)
+      .get(`https://react-user.herokuapp.com/users/${id}`)
       .then((res) => setUserDetails(res.data.user))
       .catch((err) => console.log(err));
   };
